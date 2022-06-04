@@ -1,0 +1,26 @@
+{
+  "name": "backend-final",
+  "version": "0.0.1",
+  "description": "Ejercicio Final Backend(con MongoDB)",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "keywords": [
+    "api",
+    "mongo",
+    "cars/customers"
+  ],
+  "author": "Santiago Bruno <santt31@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

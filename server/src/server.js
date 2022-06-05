@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 const carRouter = require('./resources/car/car.route');
-app.use('/car', carRouter);
+app.use('/cars', carRouter);
 
 const startServer = async()=>{
     await db.connect();

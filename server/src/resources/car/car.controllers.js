@@ -10,6 +10,20 @@ const findMany = async (req, res)=>{
     }
 }
 
+const findOne = async(req,res)=>{
+    const { id } = req.params;
+    try {
+        const doc = await Car.findOne({ _id: id});
+        if(!doc){
+            return res.status(404).json({ error : "Not found"});
+        }
+        res.status(200).json({ results: [doc]});
+    } catch (error) {
+        console.log(e);
+        res.status(500).json({ error: 'Cannot get Car'});
+    }
+}
+
 const createOne = async (req, res)=>{
     try {
         const newCar = req.body;
@@ -26,6 +40,9 @@ const updateOne = async (req,res)=>{
     try {
         const doc = await Car.findOneAndUpdate({ _id: id}, 
             req.body, { new: true});
+        if(!doc){
+            return res.status(404).json({ error : "Not found"});
+        }
         res.status(200).json({ results: [doc]});
     } catch (error) {
         console.log(e);
@@ -33,8 +50,24 @@ const updateOne = async (req,res)=>{
     }
 }
 
+const deleteOne = async(req, res)=>{
+    const { id } = req.params;
+    try {
+        const doc = await Car.findOneAndDelete({ _id: id}, { new: true});
+        if(!doc){
+            return res.status(404).json({ error : "Not found"});
+        }
+        res.status(200).json({ results: [doc]});
+    } catch (error) {
+        console.log(e);
+        res.status(500).json({ error: 'Cannot delete'});
+    }
+}
+
 module.exports = {
     findMany,
     createOne,
-    updateOne
+    findOne,
+    updateOne,
+    deleteOne
 }

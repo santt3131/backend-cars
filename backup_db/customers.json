@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "629b72099ddb27a20fd1a20e"
+  },
+  "fName": "Santiago",
+  "lName": "Bruno",
+  "email": "santt@gmail.com",
+  "mobile": 686635586
+},{
+  "_id": {
+    "$oid": "629b72099ddb27a20fd1a20f"
+  },
+  "fName": "Elizabeth",
+  "lName": "Perez",
+  "email": "bep@gmail.com",
+  "mobile": 686635589
+},{
+  "_id": {
+    "$oid": "62a0f89306221ae21d0b9ae1"
+  },
+  "fName": "Erika",
+  "lName": " Lopez",
+  "email": "erikal@gmail.com",
+  "mobile": 686635523,
+  "__v": 0
+}]

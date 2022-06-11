@@ -14,6 +14,9 @@ app.use(express.json());
 const carRouter = require('./resources/car/car.route');
 app.use('/cars', carRouter);
 
+/*const customerRouter = require('./resources/customer/customer.route');
+app.use('/customers', customerRouter);*/
+
 const startServer = async()=>{
     await db.connect();
     app.listen(PORT,()=>{

@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "629b72029ddb27a20fd1a20c"
+  },
+  "model": "For f-150",
+  "status": "ready",
+  "price": 230
+},{
+  "_id": {
+    "$oid": "629b72029ddb27a20fd1a20d"
+  },
+  "model": "For f-140",
+  "status": "waiting",
+  "price": 250
+},{
+  "_id": {
+    "$oid": "629ba542f04e3137a43be093"
+  },
+  "model": "Ford 5000",
+  "status": "ready",
+  "price": 350,
+  "__v": 0
+}]

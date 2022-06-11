@@ -12,10 +12,8 @@ const findMany = async (req, res)=>{
 
 const findCarsByUser = async(req, res)=>{
     const { id } = req.params;
-    console.log('id', id);
     try {
         const doc = await Customer.findOne({ _id: id}).populate("cars").exec();
-        console.log('docs', doc);
         if(!doc){
             return res.status(400).json({ results : [doc] });
         }
@@ -80,11 +78,28 @@ const deleteOne = async(req, res)=>{
     }
 }
 
+const removecars = async(req, res)=>{
+    const { id } = req.params;
+    const { cars } = req.body;
+    try {
+        const doc = await Customer.findOneAndUpdate({ _id: id}, 
+            { $pull: { cars:  cars}},  { new: true});
+        if(!doc){
+            return res.status(404).json({ error : "Not found"});
+        }
+        res.status(200).json({ results: [doc]});
+    } catch (error) {
+        console.log(e);
+        res.status(500).json({ error: 'Cannot update'});
+    }
+}
+
 module.exports = {
     findCarsByUser,
     findMany,
     findOne,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    removecars
 }

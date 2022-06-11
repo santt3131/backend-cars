@@ -10,6 +10,22 @@ const findMany = async (req, res)=>{
     }
 }
 
+const findCarsByUser = async(req, res)=>{
+    const { id } = req.params;
+    console.log('id', id);
+    try {
+        const doc = await Customer.findOne({ _id: id}).populate("cars").exec();
+        console.log('docs', doc);
+        if(!doc){
+            return res.status(400).json({ results : [doc] });
+        }
+        res.status(200).json({ results: [doc]});
+    } catch (error) {
+        console.log(e);
+        res.status(500).json({ error: 'Cannot get Cutomer'});
+    }
+}
+
 const findOne = async(req, res)=>{
     const { id } = req.params;
     try {
@@ -65,6 +81,7 @@ const deleteOne = async(req, res)=>{
 }
 
 module.exports = {
+    findCarsByUser,
     findMany,
     findOne,
     createOne,

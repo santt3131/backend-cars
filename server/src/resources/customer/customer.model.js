@@ -24,9 +24,15 @@ const customerSchema= new Schema(
             required: true,
             minlength: 9,
             maxlength: 9
-        }
+        },
+        cars:[
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Car'
+            }
+        ]
     }
 );
 
-const Customer= mongoose.model('customer', customerSchema);
+const Customer= mongoose.model('Customer', customerSchema,);
 module.exports = Customer;

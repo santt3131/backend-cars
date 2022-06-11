@@ -3,6 +3,7 @@ const customerControllers= require("./customer.controllers");
 const router = Router();
 
 router.post('/', customerControllers.createOne);
+router.get('/:id/cars',customerControllers.findCarsByUser);
 router.get('/', customerControllers.findMany);
 router.get('/:id', customerControllers.findOne);
 router.put('/:id', customerControllers.updateOne);
